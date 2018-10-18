@@ -16,7 +16,7 @@ public class StringReverseUtilTest {
     private int testCount = 100000;
 
     private String prepareStr(int length) {
-        char str[] = new char[length];
+        char[] str = new char[length];
         while (length-- > 0) {
             str[length] = (char) (Math.random() * 26 + 97);
         }
@@ -118,7 +118,7 @@ public class StringReverseUtilTest {
 
     @Test
     public void testReverse5() {
-        System.out.println("StringReverseUtilTest.testReverse4");
+        System.out.println("StringReverseUtilTest.testReverse5");
         String str = prepareStr(10);
         System.out.println("before reverse str = " + str);
         str = StringReverseUtil.reverse5(str);
@@ -139,7 +139,7 @@ public class StringReverseUtilTest {
 
     @Test
     public void testReverse6() {
-        System.out.println("StringReverseUtilTest.testReverse4");
+        System.out.println("StringReverseUtilTest.testReverse6");
         String str = prepareStr(10);
         System.out.println("before reverse str = " + str);
         str = StringReverseUtil.reverse6(str);
