@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author wyy
@@ -13,12 +14,13 @@ import java.util.Arrays;
 public class SortUtilTest {
 
     private int[] numbers = new int[10];
+    private Random random = new Random();
 
     @Before
     public void prepare() {
         numbers = new int[10];
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = (int) (Math.random() * 20);
+            numbers[i] = random.nextInt(20);
         }
         System.out.println("before sort numbers = " + Arrays.toString(numbers));
     }

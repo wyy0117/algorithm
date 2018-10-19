@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author wyy
@@ -14,11 +15,13 @@ public class StringReverseUtilTest {
 
 
     private int testCount = 100000;
+    private Random random = new Random();
 
     private String prepareStr(int length) {
         char[] str = new char[length];
         while (length-- > 0) {
-            str[length] = (char) (Math.random() * 26 + 97);
+
+            str[length] = (char) (random.nextInt(26) + 97);
         }
         return new String(str);
     }
@@ -27,7 +30,7 @@ public class StringReverseUtilTest {
         int length = 1000;
         char str[] = new char[length];
         while (length-- > 0) {
-            str[length] = (char) (Math.random() * 26 + 97);
+            str[length] = (char) (random.nextInt(26) + 97);
         }
         return new String(str);
     }
