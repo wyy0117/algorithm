@@ -35,7 +35,7 @@ public class RandomUtil<T> {
     }
 
     /**
-     * 从一个集合中随机去除其中的若干个元素
+     * 从一个集合中随机取其中的若干个元素
      *
      * @param list  源集合
      * @param count 数量
