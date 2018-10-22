@@ -23,7 +23,7 @@ public class SortUtil {
      * @param numbers 需要排序的整型数组
      * @return
      */
-    public static int[] bubbleSort1(int[] numbers) {
+    public static void bubbleSort1(int[] numbers) {
         int temp;
         int length = numbers.length;
         for (int i = 0; i < length - 1; i++) {//循环length-1次
@@ -35,7 +35,6 @@ public class SortUtil {
                 }
             }
         }
-        return numbers;
     }
 
     /**
@@ -46,7 +45,7 @@ public class SortUtil {
      *
      * @param numbers 需要排序的整型数组
      */
-    public static int[] bubbleSort2(int[] numbers) {
+    public static void bubbleSort2(int[] numbers) {
         int temp;
         int length = numbers.length;
         for (int i = 0; i < length - 1; i++) {//循环length-1次
@@ -58,7 +57,6 @@ public class SortUtil {
                 }
             }
         }
-        return numbers;
     }
 
     /**
@@ -78,7 +76,7 @@ public class SortUtil {
      * @param numbers
      * @return
      */
-    public static int[] selectionSort(int[] numbers) {
+    public static void selectionSort(int[] numbers) {
 
         int minIndex;
         int length = numbers.length;
@@ -100,7 +98,6 @@ public class SortUtil {
                 numbers[i] = temp;
             }
         }
-        return numbers;
     }
 
     /**
@@ -115,12 +112,12 @@ public class SortUtil {
      * @param numbers
      * @return
      */
-    public static int[] quickSort(int[] numbers) {
-        return quickSortCore(numbers, 0, numbers.length - 1);
+    public static void quickSort(int[] numbers) {
+        quickSortCore(numbers, 0, numbers.length - 1);
 
     }
 
-    private static int[] quickSortCore(int[] numbers, int low, int high) {
+    private static void quickSortCore(int[] numbers, int low, int high) {
 
         int start = low;
         int end = high;
@@ -164,7 +161,6 @@ public class SortUtil {
         if (middle < high) {
             quickSortCore(numbers, middle + 1, high);
         }
-        return numbers;
     }
 
     /**
@@ -180,13 +176,13 @@ public class SortUtil {
      * </p>
      *
      * <p>
-     *     时间负责度最差为O(n^2),平均为O(n^2),稳定
+     * 时间负责度最差为O(n^2),平均为O(n^2),稳定
      * </p>
      *
      * @param numbers
      * @return
      */
-    public static int[] insertSort(int[] numbers) {
+    public static void insertSort(int[] numbers) {
 
         int currentIndex;
         int length = numbers.length;
@@ -201,8 +197,48 @@ public class SortUtil {
                 currentIndex--;
             }
         }
-        return numbers;
     }
 
+
+    /**
+     * <p>
+     * 希尔排序
+     * </p>
+     *
+     * <p>
+     * 原理:根据需求，如果你想要结果从大到小排列，它会首先将数组根据increment进行分组分成increment组，对每个数组进行插入排序，
+     * 这样比起一开始就用插入排序减少了数据交换和移动的次数，可以说希尔排序是加强版的插入排序,
+     * 拿数组5, 2, 8, 9, 1, 3，4来说，数组长度为7，当increment为3时，数组分为3组,第0,3,6一组,第1,4,7一组,第2,5一组，
+     * 第一次排序，9,5,4比较，2,1比较，8,3比较，
+     * 此例子是按照从大到小排列，所以大的会排在前面，第一次排序后数组为9, 2, 8, 5, 1, 3，4
+     * 第一次后increment的值变为3/2=1,此时对数组进行插入排序，
+     * 实现数组从大到小排
+     * </p>
+     *
+     * @param numbers
+     * @return
+     */
+    public static void shellSort(int[] numbers) {
+
+
+        int length = numbers.length;
+        int increment = length / 2;
+        int temp;
+
+        while (increment > 1) {
+
+            for (int i = 0; i < increment; i++) {
+                for (int j = i; j < length - increment; j += increment) {
+                    if (numbers[j] < numbers[j + increment]) {
+                        temp = numbers[j];
+                        numbers[j] = numbers[j + increment];
+                        numbers[j + increment] = temp;
+                    }
+                }
+            }
+            increment = increment / 2;
+        }
+
+    }
 
 }

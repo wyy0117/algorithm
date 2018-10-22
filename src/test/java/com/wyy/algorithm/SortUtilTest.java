@@ -28,36 +28,44 @@ public class SortUtilTest {
     @Test
     public void testBubbleSort1() {
         System.out.println("SortUtilTest.testBubbleSort1");
-        int[] numbers = SortUtil.bubbleSort1(this.numbers);
+        SortUtil.bubbleSort1(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
     }
 
     @Test
     public void testBubbleSort2() {
         System.out.println("SortUtilTest.testBubbleSort2");
-        int[] numbers = SortUtil.bubbleSort2(this.numbers);
+        SortUtil.bubbleSort2(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
     }
 
     @Test
     public void testQuickSort() {
         System.out.println("SortUtilTest.testQuickSort");
-        int[] numbers = SortUtil.quickSort(this.numbers);
+        SortUtil.quickSort(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
     }
 
     @Test
     public void testSelectionSort() {
         System.out.println("SortUtilTest.testSelectionSort");
-        int[] numbers = SortUtil.selectionSort(this.numbers);
+        SortUtil.selectionSort(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
     }
 
     @Test
-    public void testInsertSort(){
+    public void testInsertSort() {
         System.out.println("SortUtilTest.testInsertSort");
-        int[] numbers = SortUtil.insertSort(this.numbers);
+        SortUtil.insertSort(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
+    }
+
+    @Test
+    public void testShellSort() {
+        System.out.println("SortUtilTest.testShellSort");
+        SortUtil.shellSort(numbers);
+        System.out.println("numbers = " + Arrays.toString(numbers));
+
     }
 
 }
